@@ -38,7 +38,7 @@
           <%-- <input class="layui-input"  autocomplete="off" placeholder="开始日" name="start" id="start">
            <input class="layui-input"  autocomplete="off" placeholder="截止日" name="end" id="end">--%>
           <input id="search" type="text" name="name"  placeholder="请输入用户名" autocomplete="off" class="layui-input">
-          <button class="layui-btn"  onclick="search_byname()" <%--lay-submit="" lay-filter="sreach"--%>><i class="layui-icon">&#xe615;</i></button>
+          <button class="layui-btn"  <%--onclick="search_byname()"--%> <%--lay-submit="" lay-filter="sreach"--%>><i class="layui-icon">&#xe615;</i></button>
         </form>
       </div>
       <xblock>
@@ -83,7 +83,7 @@
               <%--<a onclick="member_stop(this,'10001')" href="javascript:;"  title="启用">
                 <i class="layui-icon">&#xe601;</i>
               </a>--%>
-              <a title="编辑"  onclick="x_admin_show('编辑','${pageContext.request.contextPath}/member-edit.jsp',600,400)" href="javascript:;">
+              <a title="编辑"  onclick="x_admin_show('编辑','${pageContext.request.contextPath}/user/echo?id='+${user.id},600,600)" href="javascript:;">
                 <i class="layui-icon">&#xe642;</i>
               </a>
               <%--<a onclick="x_admin_show('修改密码','member-password.html',600,400)" title="修改密码" href="javascript:;">

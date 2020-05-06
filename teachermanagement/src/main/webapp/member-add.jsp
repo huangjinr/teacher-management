@@ -130,7 +130,7 @@
               <%--<label &lt;%&ndash;for="L_repass"&ndash;%&gt; class="layui-form-label">
               </label>--%>
               <button  class="layui-btn" type="submit" <%--lay-filter="add" lay-submit=""--%>>
-                  增加
+                  &nbsp;&nbsp;&nbsp;&nbsp;增加
               </button>
           </div>
       </form>

@@ -3,6 +3,7 @@ package cn.huangjin.controller;
 import cn.huangjin.domain.Users;
 import cn.huangjin.service.UserService;
 import com.github.pagehelper.PageInfo;
+import com.sun.org.apache.xpath.internal.operations.Mod;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -69,4 +70,24 @@ public class UserController {
     }
 
 
+    /**
+     * 修改数据回显
+     */
+    @RequestMapping("echo")
+    public ModelAndView echo(Integer id){
+        ModelAndView modelAndView = new ModelAndView();
+        Users user = userService.findById(id);
+        modelAndView.addObject("user",user);
+        modelAndView.setViewName("/member-edit.jsp");
+        return modelAndView;
+    }
+
+    /**
+     * 修改数据
+     */
+    @RequestMapping("update")
+    public String update(Users users){
+        userService.update(users);
+        return "redirect:../close.jsp";
+    }
 }

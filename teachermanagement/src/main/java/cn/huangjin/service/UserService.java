@@ -43,4 +43,9 @@ public class UserService {
         criteria.andNameLike("%" + name + "%");
         return usersMapper.selectByExample(usersExample);
     }
+
+    @Transactional
+    public void update(Users users) {
+        usersMapper.updateByPrimaryKey(users);
+    }
 }
