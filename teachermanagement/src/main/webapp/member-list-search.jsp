@@ -80,15 +80,15 @@
             <td>${user.course}</td>
             <td>${user.role}</td>
             <td class="td-manage">
-              <a onclick="member_stop(this,'10001')" href="javascript:;"  title="启用">
+              <%--<a onclick="member_stop(this,'10001')" href="javascript:;"  title="启用">
                 <i class="layui-icon">&#xe601;</i>
-              </a>
-              <a title="编辑"  onclick="x_admin_show('编辑','member-edit.html',600,400)" href="javascript:;">
+              </a>--%>
+              <a title="编辑"  onclick="x_admin_show('编辑','${pageContext.request.contextPath}/user/echo?id='+${user.id},600,600)" href="javascript:;">
                 <i class="layui-icon">&#xe642;</i>
               </a>
-              <a onclick="x_admin_show('修改密码','member-password.html',600,400)" title="修改密码" href="javascript:;">
+              <%--<a onclick="x_admin_show('修改密码','member-password.html',600,400)" title="修改密码" href="javascript:;">
                 <i class="layui-icon">&#xe631;</i>
-              </a>
+              </a>--%>
               <a title="删除" onclick="member_del(this,${user.id})" href="javascript:;">
                 <i class="layui-icon">&#xe640;</i>
               </a>

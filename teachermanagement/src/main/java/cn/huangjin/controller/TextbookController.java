@@ -24,4 +24,40 @@ public class TextbookController {
         modelAndView.setViewName("/textbook-list.jsp");
         return modelAndView;
     }
+
+    @RequestMapping("findByBookName")
+    public ModelAndView findByBookName(String bookName){
+        ModelAndView modelAndView = new ModelAndView();
+        List<Textbook> textbookList = textbookService.findByBookName(bookName);
+        modelAndView.addObject("textbookList",textbookList);
+        modelAndView.setViewName("/textbook-list-search.jsp");
+        return modelAndView;
+    }
+
+    @RequestMapping("add")
+    public String add(Textbook textbook){
+        textbookService.add(textbook);
+        return "redirect:../close.jsp";
+    }
+
+    @RequestMapping("delete")
+    public String delete(Integer id){
+        textbookService.delete(id);
+        return "redirect:findAll";
+    }
+
+    @RequestMapping("echo")
+    public ModelAndView echo(Integer id){
+        ModelAndView modelAndView = new ModelAndView();
+        Textbook textbook = textbookService.findById(id);
+        modelAndView.addObject("textbook",textbook);
+        modelAndView.setViewName("/textbook-edit.jsp");
+        return modelAndView;
+    }
+
+    @RequestMapping("update")
+    public String update(Textbook textbook){
+        textbookService.update(textbook);
+        return "redirect:../close.jsp";
+    }
 }

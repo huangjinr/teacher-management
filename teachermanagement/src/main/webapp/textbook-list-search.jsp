@@ -37,13 +37,13 @@
         <form class="layui-form layui-col-md12 x-so" action="findByBookName">
           <%--<input class="layui-input"  autocomplete="off" placeholder="开始日" name="start" id="start">
           <input class="layui-input"  autocomplete="off" placeholder="截止日" name="end" id="end">--%>
-          <input type="text" name="bookName"  placeholder="请输入用户名" autocomplete="off" class="layui-input">
+          <input type="text" name="username"  placeholder="请输入用户名" autocomplete="off" class="layui-input">
           <button class="layui-btn"  lay-submit="" lay-filter="sreach"><i class="layui-icon">&#xe615;</i></button>
         </form>
       </div>
       <xblock>
         <button class="layui-btn layui-btn-danger" onclick="delAll()"><i class="layui-icon"></i>批量删除</button>
-        <button class="layui-btn" onclick="x_admin_show('添加用户','${pageContext.request.contextPath}/textbook-add.jsp',400,500)"><i class="layui-icon"></i>添加</button>
+        <button class="layui-btn" onclick="x_admin_show('添加用户','./member-add.html',400,500)"><i class="layui-icon"></i>添加</button>
         <span class="x-right" style="line-height:40px">共有数据：88 条</span>
       </xblock>
       <table class="layui-table x-admin">
@@ -83,7 +83,7 @@
               <%--<a onclick="x_admin_show('修改密码','member-password.html',600,400)" title="修改密码" href="javascript:;">
                 <i class="layui-icon">&#xe631;</i>
               </a>--%>
-              <a title="删除" onclick="member_del(this,${textbook.id})" href="javascript:;">
+              <a title="删除" onclick="member_del(this,'${textbook.id}')" href="javascript:;">
                 <i class="layui-icon">&#xe640;</i>
               </a>
             </td>

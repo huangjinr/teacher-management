@@ -3,7 +3,7 @@
         PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
         "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
 <generatorConfiguration>
-    <classPathEntry location="F:\apache-maven-3.3.9\repository\mysql\mysql-connector-java\5.1.6\mysql-connector-java-5.1.6.jar" />
+    <classPathEntry location="D:\apache-maven-3.3.9\repository\mysql\mysql-connector-java\5.1.6\mysql-connector-java-5.1.6.jar" />
     <context id="test" targetRuntime="MyBatis3">
         <plugin type="org.mybatis.generator.plugins.EqualsHashCodePlugin"/>
         <plugin type="org.mybatis.generator.plugins.SerializablePlugin"/>
@@ -54,8 +54,8 @@
 
 
         <!-- 指定要逆向分析哪些表：根据表要创建javaBean -->
-        <table tableName="thesis" />
-        <!--<table tableName="textbook" />-->
+        <!--<table tableName="thesis" />-->
+        <table tableName="textbook" />
         <!--<table tableName="goods" >
             <generatedKey column="code" sqlStatement="MySql" identity="true" />
         </table>

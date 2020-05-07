@@ -7,6 +7,8 @@ public class Textbook implements Serializable {
 
     private String bookname;
 
+    private String author;
+
     private String department;
 
     private String grade;
@@ -29,6 +31,14 @@ public class Textbook implements Serializable {
 
     public void setBookname(String bookname) {
         this.bookname = bookname == null ? null : bookname.trim();
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author == null ? null : author.trim();
     }
 
     public String getDepartment() {
@@ -69,6 +79,7 @@ public class Textbook implements Serializable {
         Textbook other = (Textbook) that;
         return (this.getId() == null ? other.getId() == null : this.getId().equals(other.getId()))
             && (this.getBookname() == null ? other.getBookname() == null : this.getBookname().equals(other.getBookname()))
+            && (this.getAuthor() == null ? other.getAuthor() == null : this.getAuthor().equals(other.getAuthor()))
             && (this.getDepartment() == null ? other.getDepartment() == null : this.getDepartment().equals(other.getDepartment()))
             && (this.getGrade() == null ? other.getGrade() == null : this.getGrade().equals(other.getGrade()))
             && (this.getCourse() == null ? other.getCourse() == null : this.getCourse().equals(other.getCourse()));
@@ -80,6 +91,7 @@ public class Textbook implements Serializable {
         int result = 1;
         result = prime * result + ((getId() == null) ? 0 : getId().hashCode());
         result = prime * result + ((getBookname() == null) ? 0 : getBookname().hashCode());
+        result = prime * result + ((getAuthor() == null) ? 0 : getAuthor().hashCode());
         result = prime * result + ((getDepartment() == null) ? 0 : getDepartment().hashCode());
         result = prime * result + ((getGrade() == null) ? 0 : getGrade().hashCode());
         result = prime * result + ((getCourse() == null) ? 0 : getCourse().hashCode());
@@ -94,6 +106,7 @@ public class Textbook implements Serializable {
         sb.append("Hash = ").append(hashCode());
         sb.append(", id=").append(id);
         sb.append(", bookname=").append(bookname);
+        sb.append(", author=").append(author);
         sb.append(", department=").append(department);
         sb.append(", grade=").append(grade);
         sb.append(", course=").append(course);

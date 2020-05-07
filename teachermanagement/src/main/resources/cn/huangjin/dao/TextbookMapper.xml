@@ -4,6 +4,7 @@
   <resultMap id="BaseResultMap" type="cn.huangjin.domain.Textbook" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="bookName" property="bookname" jdbcType="VARCHAR" />
+    <result column="author" property="author" jdbcType="VARCHAR" />
     <result column="department" property="department" jdbcType="VARCHAR" />
     <result column="grade" property="grade" jdbcType="VARCHAR" />
     <result column="course" property="course" jdbcType="VARCHAR" />
@@ -67,7 +68,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, bookName, department, grade, course
+    id, bookName, author, department, grade, course
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.huangjin.domain.TextbookExample" >
     select
@@ -100,10 +101,12 @@
     </if>
   </delete>
   <insert id="insert" parameterType="cn.huangjin.domain.Textbook" >
-    insert into textbook (id, bookName, department, 
-      grade, course)
-    values (#{id,jdbcType=INTEGER}, #{bookname,jdbcType=VARCHAR}, #{department,jdbcType=VARCHAR}, 
-      #{grade,jdbcType=VARCHAR}, #{course,jdbcType=VARCHAR})
+    insert into textbook (id, bookName, author, 
+      department, grade, course
+      )
+    values (#{id,jdbcType=INTEGER}, #{bookname,jdbcType=VARCHAR}, #{author,jdbcType=VARCHAR}, 
+      #{department,jdbcType=VARCHAR}, #{grade,jdbcType=VARCHAR}, #{course,jdbcType=VARCHAR}
+      )
   </insert>
   <insert id="insertSelective" parameterType="cn.huangjin.domain.Textbook" >
     insert into textbook
@@ -113,6 +116,9 @@
       </if>
       <if test="bookname != null" >
         bookName,
+      </if>
+      <if test="author != null" >
+        author,
       </if>
       <if test="department != null" >
         department,
@@ -130,6 +136,9 @@
       </if>
       <if test="bookname != null" >
         #{bookname,jdbcType=VARCHAR},
+      </if>
+      <if test="author != null" >
+        #{author,jdbcType=VARCHAR},
       </if>
       <if test="department != null" >
         #{department,jdbcType=VARCHAR},
@@ -157,6 +166,9 @@
       <if test="record.bookname != null" >
         bookName = #{record.bookname,jdbcType=VARCHAR},
       </if>
+      <if test="record.author != null" >
+        author = #{record.author,jdbcType=VARCHAR},
+      </if>
       <if test="record.department != null" >
         department = #{record.department,jdbcType=VARCHAR},
       </if>
@@ -175,6 +187,7 @@
     update textbook
     set id = #{record.id,jdbcType=INTEGER},
       bookName = #{record.bookname,jdbcType=VARCHAR},
+      author = #{record.author,jdbcType=VARCHAR},
       department = #{record.department,jdbcType=VARCHAR},
       grade = #{record.grade,jdbcType=VARCHAR},
       course = #{record.course,jdbcType=VARCHAR}
@@ -187,6 +200,9 @@
     <set >
       <if test="bookname != null" >
         bookName = #{bookname,jdbcType=VARCHAR},
+      </if>
+      <if test="author != null" >
+        author = #{author,jdbcType=VARCHAR},
       </if>
       <if test="department != null" >
         department = #{department,jdbcType=VARCHAR},
@@ -203,6 +219,7 @@
   <update id="updateByPrimaryKey" parameterType="cn.huangjin.domain.Textbook" >
     update textbook
     set bookName = #{bookname,jdbcType=VARCHAR},
+      author = #{author,jdbcType=VARCHAR},
       department = #{department,jdbcType=VARCHAR},
       grade = #{grade,jdbcType=VARCHAR},
       course = #{course,jdbcType=VARCHAR}
